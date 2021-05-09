@@ -10,7 +10,9 @@ $(function() {
                 // console.log(res);
                 if (res.status != 0) return layer.msg(res.message);
                 form.val('form_edit', res.data);
-                // tinyMCE.activeEditor.setContent(res.data.content);
+                setTimeout(function() {
+                    tinyMCE.activeEditor.setContent(res.data.content);
+                }, 120);
                 if (!res.data.cover_img) return layer.msg('用户未上传封面！');
                 let newImgURL = baseURL + res.data.cover_img;
                 $image
